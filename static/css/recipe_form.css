@@ -1,0 +1,243 @@
+:root{        --primary: #38A169; /* Green */
+    --primary-light: #4abb7d; /* Lighter green for hover states */
+    --secondary: #9AE6B4; /* Light Green */
+    --dark: #276749; /* Dark Green */
+    --light: #F0FFF4; /* Light Mint */
+    --accent: #68D391; /* Medium Green */
+    --gray-100: #f7fafc;
+    --gray-200: #edf2f7;
+    --gray-300: #e2e8f0;
+    --gray-800: #2d3748;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--gray-800);
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 640px;
+    margin: 20px auto;
+    padding: 40px 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    background-color: #e4e4e4;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--primary);
+    font-weight: 600;
+    position: relative;
+    letter-spacing: -0.5px;
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+form {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+form p {
+    margin-bottom: 25px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--gray-800);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    margin-top: 6px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(56, 161, 105, 0.2);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input[type="file"] {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    width: 100%;
+    margin: 8px 0;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 40px auto 10px;
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-light);
+    box-shadow: var(--shadow-md);
+}
+
+.helptext {
+    display: block;
+    font-size: 0.85rem;
+    color: #2F855A;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.errorlist {
+    color: #E53E3E;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    list-style-type: none;
+    background-color: #FFF5F5;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #E53E3E;
+}
+
+/* For checkboxes and radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+/* For multiple select fields */
+select[multiple] {
+    height: auto;
+    min-height: 120px;
+    margin-bottom: 15px;
+}
+
+/* Form header style */
+.form-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 20px;
+    margin: -40px -30px 30px -30px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    text-align: center;
+}
+
+.form-header h1 {
+    color: white;
+    margin-bottom: 0;
+}
+
+.form-header h1:after {
+    display: none;
+}
+
+/* Required field indicator */
+.required label:after {
+    content: " *";
+    color: #E53E3E;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {    
+    .container {
+        padding: 30px 20px;
+    }
+    
+    form p {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 25px 15px;
+    }
+    
+    form p {
+        padding: 12px;
+    }
+    
+    button[type="submit"] {
+        max-width: 100%;
+    }
+}

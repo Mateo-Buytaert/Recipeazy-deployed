@@ -1,0 +1,133 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Recipe Collection</title>
+    <link rel="stylesheet" href="{%static 'css/recipe_detail.css'%}">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Recipe<span>Eazy</span></div>
+                <div class="nav-links">
+                    <a href="{%url 'index'%}" class="active">Home</a>
+                    <a href="{%url 'recipe_list'%}" class ="active">Recipes</a>
+                    <a href = "{%url 'profile'%}" class="active">Profile</a>
+                    {%if user.is_authenticated%}
+                    <a href="{%url 'recipe-create'%}" class="active">Make Recipe</a>
+                    {%endif%}
+                </div>
+                <div class="search-bar">
+                    <form action="{% url 'search-recipe' %}" method="get">
+                        <input type="text" name="q" placeholder="Enter recipe name..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="nav-links">
+                    {%if user.is_authenticated%}
+                    <a href ="{%url 'logout'%}">Logout</a>
+                    {%endif%}
+                    {%if not user.is_authenticated%}
+                    <a href ="{%url 'login'%}">Login</a>
+                    <a href="{%url 'register'%}">Register</a>
+                    {%endif%}
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="recipe-detail">
+            <div class="recipe-image-column">
+                {% if recipe.image %}
+                    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
+                {% endif %}
+            </div>
+            
+            <div class="recipe-content-column">
+                <h1 class="recipe-title">{{recipe.title}}</h1>
+                <br>
+                {% with ''|center:5 as stars %}
+                {% for _ in stars %}
+                    {% if forloop.counter <= avg_rating %}
+                        <span class="star filled">★</span>
+                    {% elif forloop.counter <= avg_rating|add:0.5 %}
+                        <span class="star half-filled">★</span>
+                    {% else %}
+                        <span class="star empty">☆</span>
+                    {% endif %}
+                {% endfor %}
+                {% endwith %}
+                <div class="recipe-quick-info">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="info-content">
+                            <span class="info-label">Cook Time</span>
+                            <span class="info-value">{{recipe.cook_time}} minute{{recipe.cook_time|pluralize}}</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-utensils"></i>
+                        <div class="info-content">
+                            <span class="info-label">Servings</span>
+                            <span class="info-value">{{recipe.servings}}</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="info-content">
+                            <span class="info-label">Difficulty</span>
+                            <span class="info-value">{{recipe.difficulty}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-description">
+                    {{recipe.description}}
+                </div>
+                <div class="recipe-section">
+                    <h3 class="section-title">Ingredients</h3>
+                    <div class="ingredients-list">
+                        {%for ingredient in ingredients%}
+                            <div class="ingredient-item">{{ingredient}}</div>
+                        {%endfor%}
+                    </div>
+                </div>
+                
+                <div class="recipe-section">
+                    <h3 class="section-title">Method</h3>
+                    <div class="method-container">{{recipe.method}}</div>
+                </div>
+                <div class="user-rating-section">
+                    <h3>Your Rating</h3>
+                    {% if user.is_authenticated %}
+                        <form id="rating-form" method="post" action="">
+                            {% csrf_token %}
+                            <div class="number-rating">
+                                <label for="rating">Rate this recipe (1-5):</label>
+                                <input type="number" id="rating" name="rating" min="1" max="5" step="1" 
+                                       value="{% if user_rating %}{{ user_rating.value }}{% endif %}" required>
+                            </div>
+                            
+                            <div class="rating-message" id="rating-message">
+                                {% if user_rating %}
+                                    You rated this recipe {{ user_rating.value }} star{% if user_rating.value > 1 %}s{% endif %}.
+                                {% else %}
+                                    Choose a rating between 1 and 5 stars.
+                                {% endif %}
+                            </div>
+                            <button type="submit" class="rating-submit-btn">Submit Rating</button>
+                        </form>
+                    {% else %}
+                        <div class="rating-login-prompt">
+                            <p>Please <a href="{% url 'login' %}">log in</a> to rate this recipe.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

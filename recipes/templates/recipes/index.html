@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipEazy - Find Your Perfect Recipe</title>
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Recip<span>Eazy</span></div>
+                <div class="nav-links">
+                    <a href="#" class="active">Home</a>
+                    <a href="{%url 'recipe_list'%}" class ="active">Recipes</a>
+                    <a href = "{%url 'profile'%}" class="active">Profile</a>
+                    {%if user.is_authenticated%}
+                    <a href="{%url 'recipe-create'%}" class="active">Make Recipe</a>
+                    {%endif%}
+                </div>
+                <div class="search-bar">
+                    <form action="{% url 'search-recipe' %}" method="get">
+                        <input type="text" name="q" placeholder="Enter recipe name..." required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="nav-links">
+                    {%if user.is_authenticated%}
+                    <a href ="{%url 'logout'%}">Logout</a>
+                    {%endif%}
+                    {%if not user.is_authenticated%}
+                    <a href ="{%url 'login'%}">Login</a>
+                    <a href="{%url 'register'%}">Register</a>
+                    {%endif%}
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="title-with-images">
+                    <h1>Recipes made easy with <span style="color: var(--primary)">RecipEazy</span></h1>
+                    <div class="floating-images">
+                        <img src="{% static 'images/pancakes.jpeg' %}" alt="Pancakes" class="float-img float-img-1">
+                        <img src="{% static 'images/fries.jpeg' %}" alt="Fries" class="float-img float-img-2">
+                        <img src="{% static 'images/sausages.jpeg' %}" alt="Sausages" class="float-img float-img-3">
+                    </div>
+                </div>
+                <p>The best recipes in one place. </p>
+                <a href="{%url 'recipe_list'%}" class="btn">Recipes</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recipes of the day</h2>
+                <p>The most popular recipes of today.</p>
+            </div>
+            <div class="recipe-grid">
+                {% for recipe in recipes %}
+                <a href="{% url 'recipe-detail' id=recipe.id %}" style="text-decoration:none">
+                    <div class="recipe-card">
+                        <div class="recipe-img">
+                            {% if recipe.image %}
+                                <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" width="300">
+                            {% endif %}
+                            <div class="recipe-time">{{recipe.cook_time}} minute{{recipe.cook_time|pluralize}}</div>
+                        </div>
+                        <div class="recipe-content">
+                            <div class="recipe-tags">
+                                {%for cuisine in recipe.cuisine.all%}
+                                    {%if cuisine.name != "none" %}
+                                        <span class="recipe-tag">{{cuisine.name}}</span>
+                                    {%endif%}
+                                {%endfor%}
+                            </div>
+                            <h3 class="recipe-title">{{recipe.title}}</h3>
+                            <p class="recipe-desc">{{recipe.description}}</p>
+                            
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+		<br>
+<br>
+                <a style="max-height:50px"  href="{%url 'recipe_list'%}" class="btn">More recipes</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Categories of food</h2>
+            </div>
+            <div class="category-container">
+                <a href="{%url 'recipe-detail-category' category='Breakfast'%}">
+                <div class="category-card">
+                    <img src="{% static 'images/breakfast2.jpeg' %}" alt="Quick meals">
+                    <div class="category-content">
+                        <h3>Breakfast</h3>
+                    </div>
+                </div>
+                </a>
+                <a href="{%url 'recipe-detail-category' category='Lunch'%}">
+                <div class="category-card">
+                    <img src="{% static 'images/lunch2.jpeg' %}" alt="Mains">
+                    <div class="category-content">
+                        <h3>Mains</h3>
+                    </div>
+                </div>
+                </a>
+                <a href="{%url 'recipe-detail-category' category='Dessert'%}">
+                <div class="category-card">
+                    <img src="{% static 'images/dessert.jpeg' %}" alt="Example Image">
+                    <div class="category-content">
+                        <h3>Desserts</h3>
+                    </div>
+                </div> 
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const newsletterContent = document.querySelector('.newsletter-content');
+        
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+            
+            recipeCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardBottom = card.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight * 0.9 && cardBottom > 0) {
+                    setTimeout(() => {
+                        card.style.animation = `fadeInUp 0.6s forwards`;
+                    }, index * 100);
+                }
+            });
+            
+            categoryCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardBottom = card.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight * 0.9 && cardBottom > 0) {
+                    setTimeout(() => {
+                        card.style.animation = `fadeInUp 0.6s forwards`;
+                    }, index * 100);
+                }
+            });
+            
+            const newsletterTop = newsletterContent.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (newsletterTop < windowHeight * 0.9) {
+                newsletterContent.style.animation = 'fadeInUp 0.8s forwards';
+            }
+        });
+        
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
