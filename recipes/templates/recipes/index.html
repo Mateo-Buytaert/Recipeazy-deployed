@@ -116,13 +116,20 @@
                     </div>
                 </div>
                 </a>
-                <a href="{%url 'recipe-detail-category' category='Dessert'%}">
+                <a href="{%url 'recipe-detail-category' category='Dinner'%}">
+                <div class="category-card">
+                    <img src="{% static 'images/dessert.jpeg' %}" alt="Example Image">
+                    <div class="category-content">
+                        <h3>Dinner</h3>
+                    </div>
+                </div>
+		<a href="{%url 'recipe-detail-category' category='Dessert'%}">
                 <div class="category-card">
                     <img src="{% static 'images/dessert.jpeg' %}" alt="Example Image">
                     <div class="category-content">
                         <h3>Desserts</h3>
                     </div>
-                </div> 
+                </div>
                 </a>
             </div>
         </div>
