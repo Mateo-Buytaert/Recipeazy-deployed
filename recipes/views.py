@@ -42,7 +42,7 @@ def recipe_create(request):
 def recipe_detail(request, id):
     recipe = get_object_or_404(Recipe, id=id)
     ingredients = recipe.ingredients
-    ingredients = ingredients.split(", ")
+    ingredients = ingredients.split(",")
     method = recipe.method
     method = method.split("Step")
     if request.method == 'POST' and request.user.is_authenticated:
