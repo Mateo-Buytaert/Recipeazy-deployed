@@ -43,6 +43,8 @@ def recipe_detail(request, id):
     recipe = get_object_or_404(Recipe, id=id)
     ingredients = recipe.ingredients
     ingredients = ingredients.split(", ")
+    method = recipe.method
+    method = method.split("Step")
     if request.method == 'POST' and request.user.is_authenticated:
         rating_value = request.POST.get('rating')
         if rating_value:
@@ -72,6 +74,7 @@ def recipe_detail(request, id):
     return render(request,"recipes/recipe_detail.html",{
         "recipe":recipe,
         "ingredients":ingredients,
+        "method":method,
         "avg_rating":avg_rating,
         "user_rating":user_rating,
         "rating_count":rating_count
