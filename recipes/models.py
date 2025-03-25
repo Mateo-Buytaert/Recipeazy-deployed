@@ -30,7 +30,7 @@ class Recipe(models.Model):
     ingredients = models.TextField(default="", help_text="Separate ingredients with commas.")
     cook_time = models.PositiveIntegerField(help_text="Cooking time in minutes.")
     servings = models.PositiveIntegerField()
-    method = models.TextField(default="")
+    method = models.TextField(default="", help_text = "Enter each step in the format 'Step (number): (instructions)'")
     image = models.ImageField(upload_to="images/")
     cuisine = models.ManyToManyField(Cuisine)
     category = models.ManyToManyField(Category)
