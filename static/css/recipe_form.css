@@ -20,7 +20,20 @@
     box-sizing: border-box;
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    max-width: 200px;
+}
 body {
     background-color: var(--light);
     color: var(--gray-800);
