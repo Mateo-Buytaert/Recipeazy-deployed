@@ -107,23 +107,38 @@ nav {
 }
 
 /* Media query for responsive design */
+/* Media query for responsive design */
 @media screen and (max-width: 992px) {
     .menu-toggle {
-        display: block;
+        display: block !important;
         order: 3;
+        padding: 10px;
+        font-size: 1.8rem;
+        z-index: 1000;
     }
     
     .logo {
         order: 1;
     }
     
+    nav {
+        position: relative;
+    }
+    
     .nav-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         order: 2;
         flex-direction: column;
         width: 100%;
         display: none; /* Hide by default on mobile */
         align-items: flex-start;
-        padding-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
     }
     
     .nav-wrapper.active {
@@ -137,10 +152,23 @@ nav {
         align-items: flex-start;
     }
     
+    .nav-links.main-links {
+        display: flex !important;
+        margin-bottom: 15px;
+    }
+    
+    .nav-links.auth-links {
+        display: flex !important;
+        margin-top: 10px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+    
     .nav-links a {
         margin: 10px 0;
         display: block;
         width: 100%;
+        font-size: 1.1rem;
     }
     
     .search-bar {
@@ -150,6 +178,7 @@ nav {
     
     .search-bar form {
         width: 100%;
+        display: flex;
     }
     
     .search-bar input {
@@ -165,12 +194,15 @@ nav {
         <nav>
             <div class="logo">Recip<span>Eazy</span></div>
             
+            <!-- Hamburger menu button (appears on mobile) -->
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             
+            <!-- Wrapper for all nav links to handle mobile dropdown -->
             <div class="nav-wrapper">
-                <div class="nav-links">
+                <!-- First set of navigation links -->
+                <div class="nav-links main-links">
                     <a href="#" class="active">Home</a>
                     <a href="{% url 'recipe_list' %}" class="active">Recipes</a>
                     <a href="{% url 'profile' %}" class="active">Profile</a>
@@ -179,6 +211,7 @@ nav {
                     {% endif %}
                 </div>
                 
+                <!-- Search bar -->
                 <div class="search-bar">
                     <form action="{% url 'search-recipe' %}" method="get">
                         <input type="text" name="q" placeholder="Enter recipe name..." required>
@@ -186,7 +219,8 @@ nav {
                     </form>
                 </div>
                 
-                <div class="nav-links">
+                <!-- Second set of navigation links -->
+                <div class="nav-links auth-links">
                     {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}">Logout</a>
                     {% endif %}
@@ -347,13 +381,20 @@ nav {
         });
         
         window.dispatchEvent(new Event('scroll'));
-	    document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function() {
     // Get the menu toggle button and nav wrapper
     const menuToggle = document.querySelector('.menu-toggle');
     const navWrapper = document.querySelector('.nav-wrapper');
     
+    if (!menuToggle || !navWrapper) {
+        console.error('Menu toggle or nav wrapper elements not found!');
+        return;
+    }
+    
     // Add click event to toggle menu
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function(event) {
+        console.log('Menu toggle clicked');
+        event.stopPropagation(); // Prevent event from bubbling up
         navWrapper.classList.toggle('active');
     });
     
