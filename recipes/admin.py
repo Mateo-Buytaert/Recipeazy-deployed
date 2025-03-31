@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recipe, Cuisine, Category, Profile
+from .models import Recipe, Cuisine, Category, Profile, StarredRecipe
 
 # Register your models here.
 
@@ -9,3 +9,4 @@ class RecipeAdmin(admin.ModelAdmin):
 admin.site.register(Cuisine)
 admin.site.register(Category)
 admin.site.register(Profile)
+admin.site.register(StarredRecipe)
