@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find all the instructions you need for a recipe</title>
+     <meta name="description" content="Find everything you need to know about a recipe, from difficulty to servings to the method, all in one place.">
     <link rel="stylesheet" href="{%static 'css/recipe_detail.css'%}">
 </head>
 <body>
@@ -50,6 +51,7 @@
                 {% if recipe.image %}
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
                 {% endif %}
+                 <a href="{%url 'star-recipe' recipe.id%}">Add to favourites</a>
             </div>
             
             <div class="recipe-content-column">
