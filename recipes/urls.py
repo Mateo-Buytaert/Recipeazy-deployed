@@ -13,5 +13,6 @@ urlpatterns = [
     path("register/",views.registerPage, name = "register"),
     path("login/", views.loginPage, name="login"),
     path("logout/", views.logoutUser, name="logout"),
-    path("profile/", views.profile, name="profile")
+    path("profile/", views.profile, name="profile"),
+    path("star/<int:recipe_id>/", views.star_recipe,name="star-recipe"),
 ]
