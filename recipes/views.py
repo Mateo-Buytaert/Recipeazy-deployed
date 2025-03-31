@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpResponse
-from .models import Recipe, Rating, Category
+from .models import Recipe, Rating, Category, StarredRecipe
 from .forms import RecipeForm, CreateUserForm, UserUpdateForm, ProfileUpdateForm, RatingForm
 from django.db.models import Q, Avg
 from django.contrib.auth.forms import UserCreationForm
@@ -27,6 +27,13 @@ def recipe_list_category(request, category):
     for recipe in recipes:
         ingredients.append(recipe.ingredients)
     return render(request,"recipes/recipe_list.html",{"recipes":recipes, "ingredients":ingredients})
+
+@login_required(login_url="login")
+def star_recipe(request,recipe_id):
+    recipe = get_object_or_404(Recipe,id=recipe_id)
+    StarredRecipe.objects.create(recipe=recipe)
+    return redirect("recipe-detail",id=recipe_id)
+    
 
 @login_required(login_url="login")
 def recipe_create(request):
