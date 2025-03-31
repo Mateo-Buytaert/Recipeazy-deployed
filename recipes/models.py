@@ -25,7 +25,7 @@ class Category(models.Model):
         return self.name
 
 class Recipe(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=250)
     description = models.TextField(default="")
     ingredients = models.TextField(default="", help_text="Separate ingredients with commas.")
     cook_time = models.PositiveIntegerField(help_text="Cooking time in minutes.")
