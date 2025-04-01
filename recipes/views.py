@@ -39,6 +39,9 @@ def star_recipe(request,recipe_id):
 def starred_recipes(request):
     starred_recipes = StarredRecipe.objects.filter(user=request.user)
     ingredients = []
+    recipes = []
+    for recipe in starred_recipes:
+        recipes.append(recipe.recipe)
     for starred_recipe in starred_recipes:
         ingredients.append(starred_recipe.recipe.ingredients)
     return render(request,"recipes/starred_recipes.html",{"recipes":recipes, "ingredients":ingredients})
