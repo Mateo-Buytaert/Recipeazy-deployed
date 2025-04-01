@@ -41,7 +41,8 @@ def starred_recipes(request):
     ingredients = []
     recipes = []
     for recipe in starred_recipes:
-        recipes.append(recipe.recipe)
+        if recipe not in recipes:
+            recipes.append(recipe.recipe)
     for starred_recipe in starred_recipes:
         ingredients.append(starred_recipe.recipe.ingredients)
     return render(request,"recipes/starred_recipes.html",{"recipes":recipes, "ingredients":ingredients})
