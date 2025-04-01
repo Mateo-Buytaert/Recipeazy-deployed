@@ -31,7 +31,8 @@ def recipe_list_category(request, category):
 @login_required(login_url="login")
 def star_recipe(request,recipe_id):
     recipe = get_object_or_404(Recipe,id=recipe_id)
-    StarredRecipe.objects.create(recipe=recipe)
+    user = request.user
+    StarredRecipe.objects.create(recipe=recipe,user=user)
     return redirect("recipe-detail",id=recipe_id)
     
 
