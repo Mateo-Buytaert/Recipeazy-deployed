@@ -62,4 +62,4 @@ class Rating(models.Model):
         unique_together = ('recipe', 'user')
 class StarredRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    user = models.ForeignKey(User,on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
