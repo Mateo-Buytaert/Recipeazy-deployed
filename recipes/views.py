@@ -37,10 +37,10 @@ def star_recipe(request,recipe_id):
 
 @login_required(login_url="login")
 def starred_recipes(request):
-    recipes = StarredRecipe.objects.filter(user=request.user)
+    starred_recipes = StarredRecipe.objects.filter(user=request.user)
     ingredients = []
-    for recipe in recipes:
-        ingredients.append(recipe.ingredients)
+    for starred_recipe in starred_recipes:
+        ingredients.append(starred_recipe.recipe.ingredients)
     return render(request,"recipes/starred_recipes.html",{"recipes":recipes, "ingredients":ingredients})
 
 @login_required(login_url="login")
