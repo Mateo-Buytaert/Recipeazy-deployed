@@ -45,6 +45,7 @@ def starred_recipes(request):
             recipes.append(recipe.recipe)
     for starred_recipe in starred_recipes:
         ingredients.append(starred_recipe.recipe.ingredients)
+    recipes = list(set(recipes))
     return render(request,"recipes/starred_recipes.html",{"recipes":recipes, "ingredients":ingredients})
 
 @login_required(login_url="login")
