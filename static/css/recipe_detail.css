@@ -204,8 +204,12 @@ top: 0;
 }
 
 .recipe-image {
-max-height: 200px;
-width: 100%;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    height: 300px; /* Fixed height in pixels */
+    object-fit: cover;
+}
 }
 }
 
