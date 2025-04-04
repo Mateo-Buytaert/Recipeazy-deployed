@@ -26,13 +26,6 @@ from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap, RecipeSitemap
 import os
 
-# Print paths where Django is looking for templates
-print("BASE_DIR:", settings.BASE_DIR)
-print("Template directories:", settings.TEMPLATES[0]['DIRS'])
-
-# Check if robots.txt exists in the expected location
-template_path = os.path.join(settings.BASE_DIR, 'templates', 'robots.txt')
-print(f"Does robots.txt exist at {template_path}? {os.path.exists(template_path)}")
 
 sitemaps = {
     'static': StaticViewSitemap,
