@@ -49,6 +49,8 @@ class Recipe(models.Model):
 
     def total_ratings(self):
         return self.ratings.count()
+    def get_absolute_url(self):
+        return f'/recipe-list/{self.id}/'
         
 class Rating(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ratings')
