@@ -51,7 +51,10 @@ urlpatterns = [
     {"sitemaps": sitemaps},
     name="django.contrib.sitemaps.views.sitemap",
     ),
-    #path("robots.txt", Trobots_txt),
+    path('robots.txt', lambda r: HttpResponse(
+        "User-agent: *\nDisallow: /private/\nDisallow: /admin/\nAllow: /", 
+        content_type="text/plain"
+    )),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
