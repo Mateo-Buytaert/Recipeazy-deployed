@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://recipeazy.me/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/profile/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/register/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/10</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/12</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/14</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/Breakfast</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/Lunch</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/Dinner</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/Dessert</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/Snack</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/1</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/4</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/6</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/7</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/8</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/11</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/13</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/9</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/recipe-list/5</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/10/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/12/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/14/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/1/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/4/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/6/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/7/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/8/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/11/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/13/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/9/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://recipeazy.me/login/?next=/star/5/</loc>
+  <lastmod>2025-04-04T14:07:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
