@@ -25,7 +25,16 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap, RecipeSitemap
 import os
+from django.http import HttpResponse
 
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Disallow: /private/",
+        "Disallow: /admin/",
+        "Allow: /"
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -42,7 +51,7 @@ urlpatterns = [
     {"sitemaps": sitemaps},
     name="django.contrib.sitemaps.views.sitemap",
     ),
-    path("robots.txt", TemplateView.as_view(template_name="robots.txt",content_type="text/plain")),
+    path("robots.txt", Trobots_txt),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
