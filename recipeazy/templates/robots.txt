@@ -1,0 +1,4 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+Sitemap: https://www.recipeazy.me/sitemap.xml
