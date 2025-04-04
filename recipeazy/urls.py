@@ -21,6 +21,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticViewSitemap, RecipeSitemap
+
+
+sitemaps = {
+    'static': StaticViewSitemap,
+    'recipes': RecipeSitemap,
+}
 
 urlpatterns = [
     path("admin/", admin.site.urls),
