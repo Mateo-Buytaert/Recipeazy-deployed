@@ -17,7 +17,7 @@ class RecipeSitemap(Sitemap):
     priority = 0.8
 
     def items(self):
-        return Recipe.objects.filter(published=True)
+        return Recipe.objects.all()
 
 class CategorySitemap(Sitemap):
     changefreq = "monthly"
