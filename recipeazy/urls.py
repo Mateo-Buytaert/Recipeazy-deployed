@@ -20,11 +20,18 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
+from django.contrib.sitemaps.views import sitemap
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include("recipes.urls")),
     path("",RedirectView.as_view(url="recipes/",permanent=True)),
+    path(
+    "sitemap.xml",
+    sitemap,
+    {"sitemaps": sitemaps},
+    name="django.contrib.sitemaps.views.sitemap",
+)
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
