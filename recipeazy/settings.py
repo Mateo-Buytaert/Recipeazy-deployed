@@ -24,7 +24,7 @@ load_dotenv(find_dotenv())
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost","159.65.58.93","www.recipeazy.me","recipeazy.me"]
 
