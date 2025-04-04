@@ -15,5 +15,6 @@ urlpatterns = [
     path("logout/", views.logoutUser, name="logout"),
     path("profile/", views.profile, name="profile"),
     path("star/<int:recipe_id>/", views.star_recipe,name="star-recipe"),
-    path("starred_recipes/",views.starred_recipes,name="starred_recipes")
+    path("starred_recipes/",views.starred_recipes,name="starred_recipes"),
+    path('search/', views.search_view, name='search'),
 ]
