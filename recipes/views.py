@@ -14,6 +14,28 @@ def index(request):
         recipes = Recipe.objects.annotate(avg_rating = Avg("ratings__value")).order_by("-avg_rating")[:3]
         return render(request, 'recipes/index.html', {'recipes': recipes})
 
+def search_view(request):
+    import traceback
+    import sys
+    
+    try:
+        query = request.GET.get('q', '')
+        # Your existing search logic here
+        # ...
+        
+    except Exception as e:
+        error_details = traceback.format_exc()
+        
+        # Log to a file you can easily access
+        with open('/tmp/search_error.log', 'w') as f:
+            f.write(f"Error: {str(e)}\n\n{error_details}")
+        
+        # You can also return the error details directly in DEBUG mode
+        if settings.DEBUG:
+            return HttpResponse(f"<pre>Error in search:\n{str(e)}\n\n{error_details}</pre>")
+        else:
+            return HttpResponse("Search error occurred. Please try again later.")
+
 def recipe_list(request):
     recipes = Recipe.objects.all()[:15]
     ingredients = []
