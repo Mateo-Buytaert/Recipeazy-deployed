@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collection of amazing recipes</title>
     <meta name="description" content="The best recipes, easily found by searching for your favourite meals">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" />
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const recipeCards = document.querySelectorAll('.recipe-card');
